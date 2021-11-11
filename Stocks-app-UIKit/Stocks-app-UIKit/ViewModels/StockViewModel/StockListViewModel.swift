@@ -12,26 +12,35 @@ class StockListViewModel: ObservableObject {
     
     var searchTerm: String = ""
     var stocks: [StockViewModel] = []
+    var articles: [ArticleViewModel] = []
     
     func load(for tableView: UITableView) {
         fetchStocks(for: tableView)
+        //fetchArticles(for: <#T##UITableView#>)
     }
     
     func numberOfRowsInSection() -> Int {
-        return stocks.count
+        stocks.count
     }
     
     func vmForRowAt(index: Int) -> StockViewModel {
-        return stocks[index]
+        stocks[index]
+    }
+    
+    private func fetchArticles(for tableView: UITableView) {
+        Webservice().getArticles { [weak self] articles in
+            if let articles = articles {
+                self?.articles = articles.map { ArticleViewModel(article: $0) }
+                tableView.reloadData()
+            }
+        }
     }
     
     private func fetchStocks(for tableView: UITableView) {
         Webservice().getStocks { [weak self] stocks in
-            DispatchQueue.main.async {
-                if let stocks = stocks {
-                    self?.stocks = stocks.map { StockViewModel(stock: $0) }
-                    tableView.reloadData()
-                }
+            if let stocks = stocks {
+                self?.stocks = stocks.map { StockViewModel(stock: $0) }
+                tableView.reloadData()
             }
         }
     }
