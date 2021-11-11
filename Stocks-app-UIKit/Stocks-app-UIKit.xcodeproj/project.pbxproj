@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		241CB628273D3DEB00F1CD86 /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241CB627273D3DEB00F1CD86 /* Article.swift */; };
 		2492B1BE273CECFB0025C16F /* StockCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2492B1BC273CECFB0025C16F /* StockCell.swift */; };
 		2497FDF5273BFB0500156AF7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497FDF4273BFB0500156AF7 /* AppDelegate.swift */; };
 		2497FDF7273BFB0500156AF7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497FDF6273BFB0500156AF7 /* SceneDelegate.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		241CB627273D3DEB00F1CD86 /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		2492B1BC273CECFB0025C16F /* StockCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StockCell.swift; sourceTree = "<group>"; };
 		2497FDF1273BFB0500156AF7 /* Stocks-app-UIKit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Stocks-app-UIKit.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2497FDF4273BFB0500156AF7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				2497FE0D273BFB5300156AF7 /* Stock.swift */,
+				241CB627273D3DEB00F1CD86 /* Article.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 			files = (
 				2497FDF9273BFB0500156AF7 /* MainViewController.swift in Sources */,
 				2497FE13273BFB5300156AF7 /* Webservice.swift in Sources */,
+				241CB628273D3DEB00F1CD86 /* Article.swift in Sources */,
 				2497FDF5273BFB0500156AF7 /* AppDelegate.swift in Sources */,
 				2497FE12273BFB5300156AF7 /* Stock.swift in Sources */,
 				2497FDF7273BFB0500156AF7 /* SceneDelegate.swift in Sources */,

@@ -9,12 +9,14 @@ import UIKit
 
 class StockCell: UITableViewCell {
     
+    var vm: StockViewModel?
+    
     var cellWidth: CGFloat {
-        contentView.bounds.width
+        bounds.width
     }
     
     var cellHeight: CGFloat {
-        contentView.bounds.height
+        bounds.height
     }
     
     lazy var arial = {
@@ -24,20 +26,23 @@ class StockCell: UITableViewCell {
     let textAlignment: NSTextAlignment = .left
     let textColor: UIColor = .white
     
-    
     lazy var titleLabel: UILabel = {
+        //print(cellWidth * 0.4)
         let x = cellWidth * 0.05
         let y = cellHeight * 0.05
         let width = cellWidth * 0.4
         let height = cellHeight * 0.4
         let frame = CGRect(x: x, y: y, width: width, height: height)
         let title = UILabel(frame: frame)
-        //title.text = "Title"
+        title.text = "Title"
         title.font = arial
-        title.font = title.font?.withSize(cellHeight * 0.2)
-//        title.backgroundColor = .red
+        //title.font = title.font?.withSize(cellHeight * 0.7)
         title.textColor = textColor
         title.textAlignment = textAlignment
+        //print(cellHeight * 0.4)
+        //print(title.frame.height)
+        print(cellHeight)
+        //print(title.frame.width)
         return title
     }()
     
@@ -48,26 +53,26 @@ class StockCell: UITableViewCell {
         let height = cellHeight * 0.4
         let frame = CGRect(x: x, y: y, width: width, height: height)
         let subtitle = UILabel(frame: frame)
-        //subtitle.text = "Subtitle"
+        subtitle.text = "Subtitle"
         subtitle.font = UIFont(name: "Arial", size: cellHeight * 0.15)
         subtitle.textColor = .gray
-//        subtitle.backgroundColor = .red
         subtitle.textAlignment = textAlignment
         return subtitle
     }()
     
     lazy var priceLabel: UILabel = {
+        //print(cellWidth * 0.55)
         let x = cellWidth * 0.55
         let y = titleLabel.frame.minY
         let width = titleLabel.frame.width
         let height = titleLabel.frame.height
         let frame = CGRect(x: x, y: y, width: width, height: height)
         let price = UILabel(frame: frame)
-        //price.text = "Price"
+        price.text = "Price"
         price.font = arial
         price.textColor = textColor
-//        price.backgroundColor = .red
         price.textAlignment = .right
+        //print(price.frame.minX)
         return price
     }()
     
@@ -80,7 +85,7 @@ class StockCell: UITableViewCell {
         let change = UILabel(frame: frame)
         change.layer.masksToBounds = true
         change.layer.cornerRadius = 10
-        //change.text = "Change"
+        change.text = "Change"
         change.font = UIFont(name: "Arial", size: cellHeight * 0.15)
         
         change.textColor = textColor
@@ -92,6 +97,7 @@ class StockCell: UITableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         setupUI()
+        config()
     }
     
     private func setupUI() {
@@ -102,10 +108,11 @@ class StockCell: UITableViewCell {
         addSubview(changeLabel)
     }
     
-    func config(with model: StockViewModel) {
-        titleLabel.text = model.symbol
-        subtitleLabel.text = model.description
-        priceLabel.text = model.price
-        changeLabel.text = model.change
+    func config() {
+        guard let vm = vm else { return }
+        titleLabel.text = vm.symbol
+        subtitleLabel.text = vm.description
+        priceLabel.text = vm.price
+        changeLabel.text = vm.change
     }
 }

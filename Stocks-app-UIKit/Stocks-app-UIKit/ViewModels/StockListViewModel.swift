@@ -11,7 +11,7 @@ import UIKit
 class StockListViewModel: ObservableObject {
     
     var searchTerm: String = ""
-    @Published var stocks: [StockViewModel] = []
+    var stocks: [StockViewModel] = []
     
     func load(for tableView: UITableView) {
         fetchStocks(for: tableView)

@@ -62,7 +62,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell") as? StockCell
         let vm = vm.vmForRowAt(index: indexPath.row)
-        cell!.config(with: vm)
+        cell!.vm = vm
         return cell!
     }
     
