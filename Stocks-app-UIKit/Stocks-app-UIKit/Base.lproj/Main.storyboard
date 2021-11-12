@@ -14,12 +14,6 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="xmark.app.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="rHM-3K-cOX">
-                                <rect key="frame" x="20" y="341" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -55,7 +49,4 @@
             <point key="canvasLocation" x="28.985507246376812" y="73.660714285714278"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="xmark.app.fill" catalog="system" width="128" height="114"/>
-    </resources>
 </document>

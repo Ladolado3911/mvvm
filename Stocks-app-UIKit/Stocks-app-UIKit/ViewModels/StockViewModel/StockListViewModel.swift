@@ -14,9 +14,12 @@ class StockListViewModel: ObservableObject {
     var stocks: [StockViewModel] = []
     var articles: [ArticleViewModel] = []
     
-    func load(for tableView: UITableView) {
-        fetchStocks(for: tableView)
-        //fetchArticles(for: <#T##UITableView#>)
+    func load(stockTableView: UITableView) {
+        fetchStocks(for: stockTableView)
+    }
+    
+    func load(articleTableView: UITableView) {
+        fetchArticles(for: articleTableView)
     }
     
     func numberOfRowsInSection() -> Int {
