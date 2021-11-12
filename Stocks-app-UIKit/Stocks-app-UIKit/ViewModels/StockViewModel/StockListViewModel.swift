@@ -22,11 +22,19 @@ class StockListViewModel: ObservableObject {
         fetchArticles(for: articleTableView)
     }
     
-    func numberOfRowsInSection() -> Int {
+    func stocksNumberOfRowsInSection() -> Int {
         stocks.count
     }
     
-    func vmForRowAt(index: Int) -> StockViewModel {
+    func articlesNumberOfRowsInSection() -> Int {
+        articles.count
+    }
+    
+    func articleVmForRowAt(index: Int) -> ArticleViewModel {
+        articles[index]
+    }
+    
+    func stockVmForRowAt(index: Int) -> StockViewModel {
         stocks[index]
     }
     

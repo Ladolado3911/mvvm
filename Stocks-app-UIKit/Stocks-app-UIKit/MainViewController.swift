@@ -46,6 +46,7 @@ class MainViewController: UIViewController {
         vw.backgroundColor = .white
         vw.layer.cornerRadius = 20
         vw.addGestureRecognizer(tapGesture)
+        vw.backgroundColor = .gray
         return vw
     }()
     
@@ -77,7 +78,7 @@ class MainViewController: UIViewController {
     lazy var articleHeadline: UILabel = {
         let x: CGFloat = 20
         let y: CGFloat = -20
-        let width = articleView.bounds.width * 0.5
+        let width = articleView.bounds.width * 0.8
         let height = articleView.bounds.height * 0.1
         let frame = CGRect(x: x, y: y, width: width, height: height)
         let label = UILabel(frame: frame)
@@ -86,12 +87,28 @@ class MainViewController: UIViewController {
         label.text = "Top News"
         label.textAlignment = .left
         label.alpha = 0
+        label.textColor = .white
         return label
     }()
     
     lazy var tapGesture: UITapGestureRecognizer = {
         let tap = UITapGestureRecognizer(target: self, action: #selector(onTap(sender:)))
         return tap
+    }()
+    
+    lazy var newsTableView: UITableView = {
+        let x: CGFloat = 20
+        let y = articleHeadline.frame.maxY + 20
+        let width = view.bounds.width - 40
+        let height = articleView.bounds.height - y
+        let frame = CGRect(x: x, y: y, width: width, height: height)
+        let tableView = UITableView(frame: frame)
+        tableView.backgroundColor = .gray
+        tableView.tag = 1
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(ArticleCell.self, forCellReuseIdentifier: "ArticleCell")
+        return tableView
     }()
 
     let vm = StockListViewModel()
@@ -136,8 +153,12 @@ class MainViewController: UIViewController {
             self.articleView.frame = self.finalFrame
         } completion: { didFinish in
             if didFinish {
+                //vm.load(articleTableView: <#T##UITableView#>)
                 // add extra subviews
-                //self.articleView.addSubview(<#T##view: UIView##UIView#>)
+                self.vm.load(articleTableView: self.newsTableView)
+                self.searchBar.isUserInteractionEnabled.toggle()
+                self.articleView.addSubview(self.newsTableView)
+//                print(self.articleView.subviews.count)
             }
         }
     }
@@ -148,7 +169,9 @@ class MainViewController: UIViewController {
             self.articleView.frame = self.smallArticleFrame
         } completion: { didFinish in
             if didFinish {
+                self.searchBar.isUserInteractionEnabled.toggle()
                 // opacity of extra views = 0 and remove every subview
+                
             }
         }
     }
@@ -171,14 +194,22 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        vm.numberOfRowsInSection()
+        tableView.tag == 1 ? vm.articlesNumberOfRowsInSection() : vm.stocksNumberOfRowsInSection()
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell") as? StockCell
-        let vm = vm.vmForRowAt(index: indexPath.row)
-        cell!.vm = vm
-        return cell!
+        if tableView.tag == 1 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleCell") as? ArticleCell
+            let vm = vm.articleVmForRowAt(index: indexPath.row)
+            cell!.vm = vm
+            return cell!
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "StockCell") as? StockCell
+            let vm = vm.stockVmForRowAt(index: indexPath.row)
+            cell!.vm = vm
+            return cell!
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

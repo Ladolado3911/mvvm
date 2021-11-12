@@ -21,6 +21,7 @@
 		2497FE11273BFB5300156AF7 /* StockListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497FE0B273BFB5300156AF7 /* StockListViewModel.swift */; };
 		2497FE12273BFB5300156AF7 /* Stock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497FE0D273BFB5300156AF7 /* Stock.swift */; };
 		2497FE13273BFB5300156AF7 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497FE0F273BFB5300156AF7 /* Webservice.swift */; };
+		249A702D273E8A8000B6A49D /* ArticleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 249A702C273E8A8000B6A49D /* ArticleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		2497FE0B273BFB5300156AF7 /* StockListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StockListViewModel.swift; sourceTree = "<group>"; };
 		2497FE0D273BFB5300156AF7 /* Stock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stock.swift; sourceTree = "<group>"; };
 		2497FE0F273BFB5300156AF7 /* Webservice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
+		249A702C273E8A8000B6A49D /* ArticleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 			isa = PBXGroup;
 			children = (
 				2492B1BC273CECFB0025C16F /* StockCell.swift */,
+				249A702C273E8A8000B6A49D /* ArticleCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -226,6 +229,7 @@
 				2497FDF5273BFB0500156AF7 /* AppDelegate.swift in Sources */,
 				2497FE12273BFB5300156AF7 /* Stock.swift in Sources */,
 				2497FDF7273BFB0500156AF7 /* SceneDelegate.swift in Sources */,
+				249A702D273E8A8000B6A49D /* ArticleCell.swift in Sources */,
 				2497FE10273BFB5300156AF7 /* StockViewModel.swift in Sources */,
 				2492B1BE273CECFB0025C16F /* StockCell.swift in Sources */,
 				2497FE11273BFB5300156AF7 /* StockListViewModel.swift in Sources */,
