@@ -59,7 +59,7 @@
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="9y5-36-IbG"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f4O-Js-VEZ">
                             <connections>
-                                <segue destination="pUE-cx-Lqe" kind="presentation" modalPresentationStyle="fullScreen" id="mKz-Fw-hx2"/>
+                                <segue destination="pUE-cx-Lqe" kind="presentation" identifier="plusIdentifier" modalPresentationStyle="fullScreen" id="mKz-Fw-hx2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

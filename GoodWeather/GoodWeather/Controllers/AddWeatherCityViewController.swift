@@ -7,10 +7,16 @@
 
 import UIKit
 
+protocol DataSendingProtocol: AnyObject {
+    func appendDataBack(weatherViewModel: WeatherViewModel)
+}
+
 class AddWeatherCityViewController: UIViewController {
     
     @IBOutlet weak var textField: UITextField!
     
+    var delegate: DataSendingProtocol!
+    private var addWeatherVM = AddWeatherViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,14 +25,11 @@ class AddWeatherCityViewController: UIViewController {
     }
     
     @IBAction func onSave(sender: UIButton) {
+        guard let delegate = delegate else { return }
         if let city = textField.text {
-            let url = URL(string: Endpoints.getWeatherString(city: city))!
-            let weatherResource = Resource<WeatherResponse>(url: url) { data in
-                let result = try? JSONDecoder().decode(WeatherResponse.self, from: data)
-                return result!
-            }
-            Webservice().load(resource: weatherResource) { result in
-                print(result)
+            addWeatherVM.addWeather(city: city) { weather in
+                self.delegate?.appendDataBack(weatherViewModel: weather)
+                self.dismiss(animated: true)
             }
         }
         //dismiss(animated: true)

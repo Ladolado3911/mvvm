@@ -8,15 +8,26 @@
 import UIKit
 
 class WeatherListTableViewController: UITableViewController {
+    
+    var weatherListVM: WeatherListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        weatherListVM = WeatherListViewModel(tableView: tableView)
+        
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "plusIdentifier" {
+            let vc = (segue.destination as! UINavigationController).topViewController as? AddWeatherCityViewController
+            vc!.delegate = weatherListVM
+        }
     }
 
     // MARK: - Table view data source
@@ -28,14 +39,16 @@ class WeatherListTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 1
+        return weatherListVM.numberOfRows()
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherCell
         
-        cell!.cityNameLabel.text = "Houston"
-        cell!.temperatureLabel.text = "70°"
+        let vm = weatherListVM.vmForRowAt(index: indexPath.row)
+        
+        cell!.cityNameLabel.text = vm.name
+        cell!.temperatureLabel.text = "\(vm.temperature)°"
         // Configure the cell...
 
         return cell!

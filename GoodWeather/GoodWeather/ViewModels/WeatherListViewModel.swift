@@ -6,9 +6,31 @@
 //
 
 import Foundation
+import UIKit
 
 class WeatherListViewModel {
     
+    var weatherList: [WeatherViewModel] = []
+    private var tableView: UITableView!
+    
+    init(tableView: UITableView) {
+        self.tableView = tableView
+    }
+    
+    func numberOfRows() -> Int {
+        weatherList.count
+    }
+    
+    func vmForRowAt(index: Int) -> WeatherViewModel {
+        weatherList[index]
+    }
+}
+
+extension WeatherListViewModel: DataSendingProtocol {
+    func appendDataBack(weatherViewModel: WeatherViewModel) {
+        weatherList.append(weatherViewModel)
+        tableView.reloadData()
+    }
 }
 
 class WeatherViewModel {
