@@ -48,7 +48,6 @@ class ArticlesViewController: UIViewController {
         view.addSubview(scrollView)
         scrollView.addSubview(articleView)
         showArticleScreen()
-        
     }
     
     private func showArticleScreen() {
