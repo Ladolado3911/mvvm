@@ -75,10 +75,47 @@
                     <view key="view" contentMode="scaleToFill" id="fOe-UH-Xm7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Dz4-JK-w5h">
+                                <rect key="frame" x="10" y="108" width="394" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="ODJ-ig-S9r"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tSa-o7-9Xn">
+                                <rect key="frame" x="10" y="178" width="394" height="44"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="save">
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="25"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="onSaveWithSender:" destination="piK-3X-1Qa" eventType="touchUpInside" id="ERi-Pq-J8W"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Y42-oL-Ydk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Dz4-JK-w5h" firstAttribute="top" secondItem="Y42-oL-Ydk" secondAttribute="top" constant="20" id="LSv-so-wZE"/>
+                            <constraint firstItem="Dz4-JK-w5h" firstAttribute="leading" secondItem="Y42-oL-Ydk" secondAttribute="leading" constant="10" id="RKg-eL-9q0"/>
+                            <constraint firstItem="Y42-oL-Ydk" firstAttribute="trailing" secondItem="Dz4-JK-w5h" secondAttribute="trailing" constant="10" id="SIL-Rt-wFP"/>
+                            <constraint firstItem="Y42-oL-Ydk" firstAttribute="trailing" secondItem="tSa-o7-9Xn" secondAttribute="trailing" constant="10" id="TQa-xD-PUw"/>
+                            <constraint firstItem="tSa-o7-9Xn" firstAttribute="leading" secondItem="Y42-oL-Ydk" secondAttribute="leading" constant="10" id="WX0-8c-8tx"/>
+                            <constraint firstItem="tSa-o7-9Xn" firstAttribute="top" secondItem="Dz4-JK-w5h" secondAttribute="bottom" constant="20" id="uYN-Us-qWn"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add City" id="hZQ-72-3B7"/>
+                    <navigationItem key="navigationItem" title="Add City" id="hZQ-72-3B7">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="LjZ-pn-Cjn">
+                            <connections>
+                                <action selector="onCancelWithSender:" destination="piK-3X-1Qa" id="TD3-zx-fp4"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="textField" destination="Dz4-JK-w5h" id="vwJ-qh-wDz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VC8-R5-7Ma" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

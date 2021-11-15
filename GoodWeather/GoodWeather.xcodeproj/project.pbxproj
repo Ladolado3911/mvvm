@@ -15,6 +15,7 @@
 		248A0D9A274237210076BE89 /* WeatherListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248A0D99274237210076BE89 /* WeatherListTableViewController.swift */; };
 		248A0D9C2742377B0076BE89 /* AddWeatherCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248A0D9B2742377B0076BE89 /* AddWeatherCityViewController.swift */; };
 		248A0D9F27423BAA0076BE89 /* WeatherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248A0D9E27423BAA0076BE89 /* WeatherCell.swift */; };
+		248A0DA3274268E20076BE89 /* Webservice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 248A0DA2274268E20076BE89 /* Webservice.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		248A0D99274237210076BE89 /* WeatherListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListTableViewController.swift; sourceTree = "<group>"; };
 		248A0D9B2742377B0076BE89 /* AddWeatherCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeatherCityViewController.swift; sourceTree = "<group>"; };
 		248A0D9E27423BAA0076BE89 /* WeatherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherCell.swift; sourceTree = "<group>"; };
+		248A0DA2274268E20076BE89 /* Webservice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Webservice.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		248A0D832742336B0076BE89 /* GoodWeather */ = {
 			isa = PBXGroup;
 			children = (
+				248A0DA1274268CC0076BE89 /* Services */,
 				248A0D9D27423B8B0076BE89 /* Cells */,
 				248A0D98274236FD0076BE89 /* Controllers */,
 				248A0D842742336B0076BE89 /* AppDelegate.swift */,
@@ -87,6 +90,14 @@
 				248A0D9E27423BAA0076BE89 /* WeatherCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		248A0DA1274268CC0076BE89 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				248A0DA2274268E20076BE89 /* Webservice.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,6 +173,7 @@
 			files = (
 				248A0D9A274237210076BE89 /* WeatherListTableViewController.swift in Sources */,
 				248A0D852742336B0076BE89 /* AppDelegate.swift in Sources */,
+				248A0DA3274268E20076BE89 /* Webservice.swift in Sources */,
 				248A0D9F27423BAA0076BE89 /* WeatherCell.swift in Sources */,
 				248A0D9C2742377B0076BE89 /* AddWeatherCityViewController.swift in Sources */,
 				248A0D872742336B0076BE89 /* SceneDelegate.swift in Sources */,
