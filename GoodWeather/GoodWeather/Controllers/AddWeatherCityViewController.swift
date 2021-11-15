@@ -21,8 +21,9 @@ class AddWeatherCityViewController: UIViewController {
     @IBAction func onSave(sender: UIButton) {
         if let city = textField.text {
             let url = URL(string: Endpoints.getWeatherString(city: city))!
-            let weatherResource = Resource<Any>(url: url) { data in
-                return data
+            let weatherResource = Resource<WeatherResponse>(url: url) { data in
+                let result = try? JSONDecoder().decode(WeatherResponse.self, from: data)
+                return result!
             }
             Webservice().load(resource: weatherResource) { result in
                 print(result)

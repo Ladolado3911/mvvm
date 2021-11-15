@@ -8,7 +8,9 @@
 import UIKit
 
 struct Endpoints {
-    static func getWeatherString(city: String) -> String { "https://api.openweathermap.org/data/2.5/weather?q=\(city)&appid=27094f153e7a30c9c0ed94ec0a4e0839&units=imperial"
+    static func getWeatherString(city: String) -> URL? {
+        let string = "https://api.openweathermap.org/data/2.5/weather?q=\(city.escaped)&appid=27094f153e7a30c9c0ed94ec0a4e0839&units=imperial"
+        return URL(string: string)
     }
 }
 
